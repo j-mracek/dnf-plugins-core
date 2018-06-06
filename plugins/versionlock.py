@@ -206,7 +206,7 @@ def _write_locklist(base, args, try_installed, comment, info, prefix):
             logger.info("%s %s", NOTFOUND_SPEC, pat)
 
         for pkg in pkgs:
-            specs.add(pkgtup2spec(*pkg.pkgtup))
+            specs.add(pkgtup2spec(pkg.name, pkg.arch, str(pkg.epoch), pkg.version, pkg.release))
 
     with open(locklist_fn, 'a') as f:
         f.write(comment)

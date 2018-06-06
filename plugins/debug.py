@@ -220,7 +220,7 @@ class DebugRestoreCommand(dnf.cli.Command):
                                                        [None, None, None,
                                                         None, None, None])
             dump_naevr = (dn, da, de, dv, dr)
-            if pkg.pkgtup == dump_naevr:
+            if (pkg.name, pkg.arch, str(pkg.epoch), pkg.version, pkg.release) == dump_naevr:
                 # package unchanged
                 del dump_pkgs[(pkg.name, pkg.arch)]
             else:
